@@ -1,5 +1,8 @@
 package olympiacosFC;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Players {
     private static int totalGoals = 0;
     private static int totalAssists = 0;
@@ -15,8 +18,10 @@ public class Players {
     protected int goals;
     protected int assists;
 
-    public Players() {
+    private static List<Players> allPlayers = new ArrayList<>();
 
+    public Players() {
+        allPlayers.add(this);
     }
 
     public Players(String lastname, int shirtNumber) {
@@ -102,7 +107,20 @@ public class Players {
                 lastname, firstname, shirtNumber, nationality, birthYear, goals, assists);
     }
 
+//    public static String getPlayerByShirtNumber(int shirtNumber) {
+//        try {
+//            return getLastName.getShirtNumber();
+//        }
+//    }
+
+    public static void printPlayers() {
+        for (Players P : allPlayers) {
+            System.out.println(P);
+        }
+    }
+
     static String teamTotals() {
         return "Total Goals: " + totalGoals + " | Total Assists: " + totalAssists + "\n";
     }
+    
 }
