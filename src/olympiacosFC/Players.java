@@ -1,7 +1,8 @@
 package olympiacosFC;
 
-import java.util.ArrayList;
+import java.time.Year;
 import java.util.List;
+import java.util.ArrayList;
 
 public class Players {
     private static int totalGoals = 0;
@@ -13,7 +14,10 @@ public class Players {
     private String firstname;
     private String middlename;
     private String nationality;
+
     private int birthYear;
+    final int CURRENT_YEAR = Year.now().getValue();
+
 
     protected int goals;
     protected int assists;
@@ -86,6 +90,10 @@ public class Players {
 
     public int getBirthYear() {
         return birthYear;
+    }
+
+    public int getAge() {
+        return CURRENT_YEAR - this.getBirthYear();
     }
 
     public void addGoal(int g) {
